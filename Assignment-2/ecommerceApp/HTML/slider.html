@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <style>
+        .slider_container{
+            width: 95%;
+            position: relative;
+            overflow: hidden;
+            padding: 10px;
+            margin: 30px;
+        } 
+
+        .slider{
+            display: flex;
+            gap: 5px;
+            transition:0.5s ease-in-out;
+
+        }
+        .slide{
+            flex: 0 0 30%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+        }
+        .slider_controls{
+/*             position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%); */
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .next_btn, .pre_btn{
+            border-radius: 40%;
+            padding: 20px;
+            cursor: pointer;
+        }
+        .slide.active{
+             transform: translateX(0);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slider_container">
+        <div class="slider">
+            <div class="slide" style="background-image:url(../img/banner/b17.jpg);"></div>
+            <div class="slide" style="background-image:url(../img/banner/b18.jpg);"></div>
+            <div class="slide" style="background-image:url(../img/banner/b19.jpg);"></div>
+            <div class="slide" style="background-image:url(../img/banner/b17.jpg);"></div>
+            <div class="slide" style="background-image:url(../img/banner/b18.jpg);"></div>
+            <div class="slide" style="background-image:url(../img/banner/b19.jpg);"></div>
+            <div class="slide" style="background-image:url(../img/banner/b17.jpg);"></div>
+            <div class="slide" style="background-image:url(../img/banner/b18.jpg);"></div>
+            <div class="slide" style="background-image:url(../img/banner/b19.jpg);"></div>
+            <div class="slide" style="background-image:url(../img/banner/b18.jpg);"></div>
+            <div class="slide" style="background-image:url(../img/banner/b19.jpg);"></div>
+        </div>
+        <div class="slider_controls">
+             <button class="pre_btn" onclick="preSlide()"><span class="material-icons">
+                arrow_back_ios_new
+                </span></button>
+             <button class="next_btn" onclick="nextSlide()"><span class="material-icons">
+                arrow_forward_ios
+                </span></button>
+        </div>
+    </div>
+
+    <script>
+        const slider = document.querySelector(".slider");
+        const slides = document.querySelectorAll(".slide"); 
+        
+        const totalLength = Math.ceil((slides.length)/3);
+        console.log(totalLength)
+        
+        let slideIndex = 0;
+        slides[slideIndex].classList.add('active');
+
+
+        function nextSlide(){
+            slides[slideIndex].classList.remove('active');
+            slideIndex = (slideIndex === totalLength - 1) ? 0 : slideIndex +1;
+            slides[slideIndex].classList.add('active');
+            slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+        }
+        function preSlide(){
+            slides[slideIndex].classList.remove('active');
+            slideIndex = (slideIndex === 0) ? totalLength -1  : slideIndex -1;
+            slides[slideIndex].classList.add('active');
+            slider.style.transform = `translateX(-${slideIndex * 100}%)`; 
+        }
+
+    </script>
+</body>
+</html>  

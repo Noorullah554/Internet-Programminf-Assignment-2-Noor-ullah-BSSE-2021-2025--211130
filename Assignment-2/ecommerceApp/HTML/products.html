@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/products.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <nav id="header">
+        <a href="#"><img src="../img/logo.png" alt=""></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="./index.html">Home</a></li>
+                <li><a class="active" href="./products.html">ProductsApi</a></li>
+                <li><a href=""><span class="material-icons-outlined">
+                    shopping_bag
+                </span></a></li>
+            </ul>
+        </div>
+    </nav>
+    <h1 class="all-products-heading">All Products</h1>
+    <p class="scroll-Message">Scroll down to see more</p>
+    <div class="all-products-container"></div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 250,
+            duration: 1000
+        });
+
+    </script>
+    <script src="../JavaScript/productsAPI.js"></script>
+</body>
+
+</html>
